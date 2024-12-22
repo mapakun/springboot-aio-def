@@ -21,6 +21,13 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
+	/* MySQL */
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	//MyBatis
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
+	
 }
 
 bootJar{
