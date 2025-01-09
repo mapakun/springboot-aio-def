@@ -1,14 +1,37 @@
 server:
   port: 8080
-  
-#DB Info
+
 spring:
-  datasource:
+  profiles:
+    active: local #default setting
+  
+  
+---  
+spring:
+  config:
+    activate:
+      on-profile: local #configset
+  datasource: #DB Info
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/doowarf?allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
     username: doowarf
     password: doowarf
 
+#Mybatis location setting
+mybatis: 
+  mapper-locations: mapper/**/*.xml
+  
+---
+spring:
+  config:
+    activate:
+      on-profile: prod #configset
+  datasource: #DB Info
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://doowarfdb:3306/doowarf?allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
+    username: doowarf
+    password: doowarf
+    
 #Mybatis location setting
 mybatis: 
   mapper-locations: mapper/**/*.xml
